@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var num = Number(window.prompt('Digite um número '))
+        var valorAbsoluto = Math.abs(num)
+        var valorArredondadoAbaixo = Math.floor(num)
+        var valorArredondadoAcima = Math.ceil(num)
+        var raizQuadrada = Math.sqrt(num)
+        var raizQuadrada2 = num**(1/2)
+        var raizCubica = Math.cbrt(num)
+        var raizCubica2 = num**(1/3)
+        var valorTruncado = Math.trunc(num)
+        window.alert(`O número absoluto de ${num} é ${valorAbsoluto}`)
+        window.alert(`O número ${num} e seu arredondamento menor é  ${valorArredondadoAbaixo}`)
+        window.alert(`O número ${num} e seu arredondamento maior é ${valorArredondadoAcima}`)
+        window.alert(`O número ${num} e sua raiz quadrada é ${raizQuadrada}`)
+        window.alert(`O número ${num} e sua raiz quadrada é ${raizQuadrada2}`)
+        window.alert(`O número ${num} e sua raiz cúbica é ${raizCubica}`)
+        window.alert(`O número ${num} e sua raiz cúbica é ${raizCubica2}`)
+        window.alert(`O número ${num} e seu número truncado é ${valorTruncado}`)
+    </script>
+</body>
+</html>
