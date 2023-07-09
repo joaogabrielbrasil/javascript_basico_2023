@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio pegando valores do range com JavaScript</h1>
+    
+        <label for="numero">Número da barra range: <strong id="num"></strong></label>
+        <p><input type="range" name="valor" id="valor" min="0" max="100" step="1" oninput="numero()" value="0"></p>
+        <p><button onclick="mostrarValor()">Clique aqui</button></p>
+        <p><strong id="result"></strong></p>
+        <script>
+            numero()
+            function numero() {
+                num.innerText = valor.value
+            }
+            function mostrarValor() {
+                var txtn1 = window.document.querySelector('input#valor')
+                var n = Number(txtn1.value)
+                var result = window.document.getElementById('result')
+                result.innerText = `${n}`
+            }
+        </script>
+    
+</body>
+</html>
