@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Par ou Impar</h1>
+    <fieldset>
+        <label for="txtn1">Digite um número</label>
+        <p><input type="number" name="txtn1" id="txtn1"></p>
+        <p><input type="button" value="Clique aqui" onclick="parOuImpar()"></p>
+    </fieldset>
+    <p><strong id="resultado"></strong></p>
+    <script>
+        function parOuImpar() {
+            var txtn1 = window.document.querySelector('input#txtn1')
+            var result = window.document.getElementById('resultado')
+            var numero = Number(txtn1.value)
+            if (numero % 2 == 0) {
+                result.innerText = `O número ${numero} é par`
+            }else {
+                result.innerText = `O número ${numero} é impar`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Conversor de moedas 1.0 (Real -> Dólar)</h1>
+    <fieldset>
+        <legend>Exercicio</legend>
+        <label for="txtn1">Digite quanto você quer converter para Dólar US</label>
+        <p><input type="text" name="txtn1" id="txtn1"></p>
+        <p><input type="button" value="Converter" onclick="converter()"></p>
+    </fieldset>
+    <p><strong id="resultado"></strong></p>
+    <script>
+        function converter() {
+            var txtn1 = window.document.getElementById('txtn1')
+            var result = window.document.querySelector('strong#resultado')
+            var real = Number(txtn1.value)
+            var dolar = real / 4.87
+            result.innerText = `${real.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}, convertido em dólar será ${dolar.toLocaleString('pt-BR', {style: 'currency', currency: 'USD'})}`
+        }
+    </script>
+</body>
+</html>

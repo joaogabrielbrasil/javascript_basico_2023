@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Antecessor e Sucessor</h1>
+            <fieldset>
+                <legend>Exercicio</legend>
+                <label for="txtn1">Digite qualquer número</label>
+                <p><input type="text" name="txtn1" id="txtn1"></p>
+                <p><button onclick="antesedepois()">Clique aqui</button></p>
+            </fieldset>
+        <p><strong id="resultado"></strong></p>
+    <script>
+        function antesedepois() {
+             var txtn1 = window.document.querySelector('input#txtn1')
+             var num = Number(txtn1.value)
+             var result = window.document.getElementById('resultado')
+             var antecessor = num - 1
+             var sucessor = num + 1
+             result.innerHTML = `O antecessor de ${num} é ${antecessor}`
+             result.innerText = `O sucessor de ${num} é ${sucessor}`
+        }
+     </script>
+</body>
+</html>

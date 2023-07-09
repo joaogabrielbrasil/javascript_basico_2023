@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Sorteador de números</h1>
+    <fieldset>
+        <legend>Exercicio</legend>
+        <label for="txtn1"></label>
+        <p><input type="text" name="txtn1" id="txtn1"></p>
+        <p><button onclick="gerarNumero()">Clique aqui</button></p>
+    </fieldset>
+    <p><strong id="resultado"></strong></p>
+    <script>
+        function gerarNumero() {
+            var txtn1 = window.document.getElementById('txtn1')
+            var tn1 = Number(txtn1.value)
+            var numAleatorio = Math.floor(Math.random() * 9)
+            var result = window.document.querySelector('strong#resultado')
+            if ( numAleatorio == tn1) {
+                result.innerHTML = `Parabens! Você acertou! O número aleatório é ${numAleatorio}. O número que você digitou foi o ${tn1}`
+            }else {
+                result.innerHTML = `Você errou! O número aleatório é ${numAleatorio}. O número que você digitou foi o ${tn1}`
+            }
+        }
+    </script>
+</body>
+</html>

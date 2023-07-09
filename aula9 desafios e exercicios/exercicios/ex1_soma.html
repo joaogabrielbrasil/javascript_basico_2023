@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Somando dois números</h1>
+    <fieldset>
+        <legend>Exercicio</legend>
+        <label for="num1">Digite o primeiro número</label>
+        <p><input type="number" name="num1" id="num1"></p>
+        <label for="num2">Digite o segundo número</label>
+        <p><input type="number" name="num2" id="num2"></p>
+        <p><input type="button" value="Somar" onclick="somar()"></p>
+    </fieldset>
+    <p><strong id="resposta"></strong></p>
+    <script>
+        function somar() {
+            var txtn1 = window.document.getElementById('num1')
+            var txtn2 = window.document.querySelector('input#num2')
+            var result = window.document.getElementById('resposta')
+            var tn1 = Number(txtn1.value)
+            var tn2 = Number(txtn2.value)
+            var soma = tn1 + tn2
+            result.innerHTML = `A soma de ${tn1} e ${tn2} é igual a ${soma}`
+        }
+    </script>
+</body>
+</html>
