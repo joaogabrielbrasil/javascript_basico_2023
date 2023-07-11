@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exercicio - Votação</h1>
+        <fieldset>
+            <legend>Exercicio</legend>
+            <label for="txtnome">Eleitor:</label>
+            <p><input type="text" name="txtnome" id="txtnome"></p>
+            <label for="txtano_nasc">Ano de nascimento: <strong id="nasc"></strong></label>
+            <p><input type="range" name="txtano_nasc" id="txtano_nasc" min="1900" max="2023" step="1" value="0" oninput="nasc2()"></p>
+            <label for="txtano_atual">Ano atual: <strong id="ano"></strong></label>
+            <p><input type="text" name="txtano_atual" id="txtano_atual"></p>
+            <p><input type="submit" value="Clique aqui" onclick="votacao()"></p>
+        </fieldset>
+    <p>
+        <strong id="resultado"></strong>
+    </p>
+    <script>
+        nasc2()
+        function nasc2() {
+            nasc.innerText = txtano_nasc.value
+        }
+        function votacao() {
+            var nome = String(window.document.getElementById('txtnome').value)
+            var ano_nasc = Number(window.document.querySelector('input#txtano_nasc').value)
+            var ano_atual = Number(window.document.querySelector('input#txtano_atual').value)
+            var resultado = window.document.getElementById('resultado')
+            var idade = ano_atual - ano_nasc
+            if (idade < 16) {
+                resultado.innerHTML = `${nome}, com idade de ${idade} anos, você ainda não pode votar.`
+            }else if ((idade >= 16 && idade < 18) || idade >= 65){
+                resultado.innerHTML = `${nome}, com idade de ${idade} anos, seu voto é opcional.`
+            }else {
+                resultado.innerHTML = `${nome}, com idade de ${idade} anos, seu voto é obrigatório.`
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculo desconto de preços</h1>
+    
+        <fieldset>
+            <legend>Exercicio</legend>
+            <label for="txtnome_produto">Digite o nome do produto que você quer comprar</label>
+            <p><input type="text" name="txtnome_produto" id="txtnome_produto"></p>
+            <label for="txtpreco_produto">Digite o valor do produto R$</label>
+            <p><input type="text" name="txtpreco_produto" id="txtpreco_produto"></p>
+            <label for="txtdesconto_produto">Desconto do produto (<strong id="mostrar"></strong><strong>%</strong>)</label>
+            <p><input type="range" name="txtdesconto_produto" id="txtdesconto_produto" step="1" min="0" max="100" value="0" oninput="desconto()"></p>
+            <p><input type="submit" value="Calcular desconto" onclick="calcular_desconto()"></p>
+        </fieldset>
+        <p>
+            <strong id="resultado"></strong>
+        </p>
+        <script>
+            desconto()
+            function desconto() {
+                mostrar.innerText = txtdesconto_produto.value
+            }
+            function calcular_desconto() {
+                var txtnome_produto = window.document.getElementById('txtnome_produto')
+                var txtpreco_produto = window.document.getElementById('txtpreco_produto')
+                var txtdesconto_produto = window.document.querySelector('input#txtdesconto_produto')
+                var resultado = window.document.querySelector('strong#resultado')
+                var nome_produto = String(txtnome_produto.value)
+                var preco_produto = Number(txtpreco_produto.value)
+                var desconto_produto = Number(txtdesconto_produto.value)
+                var desconto2 = (desconto_produto / 100) * preco_produto
+                var novo_preco_produto = preco_produto - desconto2
+                resultado.innerHTML = `Produto: ${nome_produto}; Preço: ${preco_produto.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}; desconto: ${desconto_produto}%; Preço com desconto: ${novo_preco_produto.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`
+            }
+        </script>
+
+</body>
+</html>
