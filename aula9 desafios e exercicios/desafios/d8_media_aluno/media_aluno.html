@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Desafio Média do aluno</h1>
+    <fieldset>
+        <legend>Exercicio</legend>
+        <label for="nome">Aluno:</label>
+        <p><input type="text" name="nome" id="nome"></p>
+        <label for="nota1">Digite a primeira nota:</label>
+        <p><input type="text" name="nota1" id="nota1"></p>
+        <label for="nota2">Digite a segunda nota:</label>
+        <p><input type="text" name="nota2" id="nota2"></p>
+        <label for="nota3">Digite a terceira nota:</label>
+        <p><input type="text" name="nota3" id="nota3"></p>
+        <label for="nota4">Digite a quarta nota:</label>
+        <p><input type="text" name="nota4" id="nota4"></p>
+        <button onclick="media()">Clique aqui</button>
+    </fieldset>
+    <p><strong id="resultado"></strong></p>
+    <script>
+        function media() {
+            var aluno = String(window.document.getElementById('nome').value)
+            var nota1 = Number(window.document.querySelector('input#nota1').value)
+            var nota2 = Number(window.document.querySelector('input#nota2').value)
+            var nota3 = Number(window.document.querySelector('input#nota3').value)
+            var nota4 = Number(window.document.querySelector('input#nota4').value)
+            var result = window.document.querySelector('strong#resultado')
+            var media = (nota1 + nota2 + nota3 + nota4) / 4
+            if (media < 4) {
+                result.innerHTML = `Aluno(a): ${aluno}, com Média: ${media}, está reprovado.`
+            }else if (media >= 4 && media < 7) {
+                result.innerHTML = `Aluno(a): ${aluno}, com Média: ${media}, está em recuperação.`
+            }else {
+                result.innerHTML = `Aluno(a): ${aluno}, com Média: ${media}, está em Aprovado.`
+            }
+        }
+    </script>
+</body>
+</html>
