@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Informe o seu salário</h1>
+    </header>
+    <form action="" method="post">
+        <legend>Exercicio</legend>
+        <fieldset>
+            <label for="salario">Salário (R$)</label>
+            <p><small>Considerando um salario minimo de <strong>R$ 1.380,00</strong></small></p>
+            <p><input type="number" name="salario" id="salario" min="1380" required></p>
+            <p><input type="submit" value="Calcular" id="btn_calcular"></p>
+        </fieldset>
+        <p><strong id="resultado"></strong></p>
+
+        <script>
+            var btn = window.document.querySelector('#btn_calcular')
+            btn.addEventListener('click', function(event) {
+                event.preventDefault()
+
+                const salario = Number(window.document.querySelector('#salario').value)
+                const result = window.document.querySelector('#resultado')
+                const salarioDividido = salario / 1380
+                const moduloSalario = salario % 1380
+    
+                result.innerHTML = `Quem recebe um salario de ${salario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} , ganha <big><mark>${Math.floor(salarioDividido)} salário(s) minimo(s)</mark></big> + ${moduloSalario.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`
+            })
+        </script>
+    </form>
+</body>
+</html>

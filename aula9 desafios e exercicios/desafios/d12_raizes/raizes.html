@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header><h1>Informe um número</h1></header>
+    <form action="" method="post">
+        <legend>Exercicio</legend>
+        <fieldset>
+            <label for="numero">Número</label>
+            <p><input type="number" name="numero" id="numero" min="0"></p>
+            <p><input type="submit" value="Calcular Raizes" id="btn_calcular"></p>
+        </fieldset>
+        <h2>Resultado Final</h2>
+        <p id="resultado"></p>
+    </form>
+    <script>
+        var btn = window.document.querySelector('#btn_calcular')
+        btn.addEventListener('click', function(event) {
+            event.preventDefault()
+
+            const numero = Number(window.document.querySelector('#numero').value)
+            const result = window.document.querySelector('#resultado')
+            const raizQuadrada = numero**(1/2)
+            const raizCubica = numero**(1/3)
+
+            result.innerHTML = `Analizando o <strong>número ${numero}</strong>, temos:<br>
+            <ul>
+            <li>A raiz quadrada é: <strong>${raizQuadrada.toFixed(3)}</strong></li>
+            <li>A raiz cúbica é: <strong>${raizCubica.toFixed(3)}</strong></li>
+            </ul>
+            `
+            
+        })
+    </script>
+</body>
+</html>

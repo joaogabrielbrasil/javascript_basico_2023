@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header><h1>Médias Aritméticas</h1></header>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Exercicio</legend>
+            <label for="valor1">1° Valor</label>
+            <p><input type="number" name="valor1" id="valor1"></p>
+            <label for="peso1">1° Peso</label>
+            <p><input type="number" name="peso1" id="peso1"></p>
+            <label for="valor2">2° Valor</label>
+            <p><input type="number" name="valor2" id="valor2"></p>
+            <label for="peso2">2° Peso</label>
+            <p><input type="number" name="peso2" id="peso2"></p>
+            <p><input type="submit" value="Calcular Médias" id="btn_calculo_medias"></p>
+        </fieldset>
+        <h2>Calculo das Médias</h2>
+        <p id="resultado"></p>
+        <script>
+            const btn = window.document.querySelector('#btn_calculo_medias')
+            btn.addEventListener('click', function(event) {
+                event.preventDefault()
+
+                const valor1 = Number(window.document.querySelector('#valor1').value)
+                const peso1 = Number(window.document.querySelector('#peso1').value)
+                const valor2 = Number(window.document.querySelector('#valor2').value)
+                const peso2 = Number(window.document.querySelector('#peso2').value)
+                const result = window.document.querySelector('#resultado')
+                const mediaAritmetica = (valor1 + valor2) / 2
+                const mediaAritmeticaPonderada = (valor1 * peso1 + valor2 * peso2) / (peso1 + peso2)
+
+                result.innerHTML = `<ul>
+                                        <li>A <strong>Média Aritmetica simples</strong> entre os valores é igual a ${mediaAritmetica.toFixed(2).replace('.',',')} 
+                                        </li>
+                                        <li>
+                                          A  <strong>Média Aritmetica ponderada</strong> com pesos ${peso1} e ${peso2} é igual a ${mediaAritmeticaPonderada.toFixed(2).replace('.',',')}
+                                        </li>
+                                    </ul>`
+            })
+        </script>
+    </form>
+</body>
+</html>

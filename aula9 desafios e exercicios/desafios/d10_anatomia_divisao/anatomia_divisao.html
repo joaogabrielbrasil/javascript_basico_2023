@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Anatomia de uma divisão</h1>
+    <form method="post" id="myform">
+        <fieldset>
+            <legend>Exercicio</legend>
+            <label for="dividendo">Dividendo</label>
+            <p><input type="text" name="dividendo" id="dividendo"></p>
+            <label for="divisor"></label>
+            <p><input type="text" name="divisor" id="divisor"></p>
+            <p><input type="submit" value="Clique aqui" id="clique_aqui"></p>
+        </fieldset>
+        <p><strong id="mostrar_dividendo"></strong></p>
+        <p><strong id="mostrar_divisor"></strong></p>
+        <p><strong id="mostrar_quociente"></strong></p>
+        <p><strong id="mostrar_resto"></strong></p>
+    </form>
+    <script>
+        var btn = window.document.querySelector('#clique_aqui')
+        btn.addEventListener('click', function(event){
+            event.preventDefault()
+
+            var dividendo = Number(window.document.querySelector('#dividendo').value)
+            var divisor = Number(window.document.querySelector('#divisor').value)
+            var quociente = dividendo / divisor
+            var modulo_divisao = dividendo % divisor
+            var mostrar_dividendo = window.document.querySelector('#mostrar_dividendo')
+            var mostrar_divisor = window.document.querySelector('#mostrar_divisor')
+            var mostrar_quociente = window.document.querySelector('#mostrar_quociente')
+            var mostrar_resto = window.document.querySelector('#mostrar_resto')
+
+            mostrar_dividendo.innerHTML = `O dividendo é: ${dividendo}<br>`
+            mostrar_divisor.innerHTML = `O divisor é: ${divisor}<br>`
+            mostrar_quociente.innerHTML = `O quociente é: ${quociente.toFixed(0)}<br>`
+            mostrar_resto.innerHTML = `O resto é: ${modulo_divisao}`
+        })
+    </script>
+</body>
+</html>
