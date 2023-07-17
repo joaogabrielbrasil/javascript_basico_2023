@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header><h1>Reajustador de Preço</h1></header>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Exercicio</legend>
+            <label for="preco">Preço do produto (R$)</label>
+            <p><input type="number" name="preco" id="preco"></p>
+            <label for="percentual">Qual será o percentual de reajuste ? (<strong id="p"></strong>%)</label>
+            <p><input type="range" name="percentual" id="percentual" value="0" step="1" oninput="mudaValor()"></p>
+            <p><input type="submit" value="Reajustar" id="btn_reajustar"></p>
+        </fieldset>
+        <p><h2>Resultado do reajuste</h2></p>
+        <p id="resultado"></p>
+        <script>
+            mudaValor()
+            function mudaValor() {
+                p.innerText = percentual.value
+            }
+        </script>
+        <script>
+            const btn = window.document.querySelector('#btn_reajustar')
+            btn.addEventListener('click', function(event) {
+                event.preventDefault()
+
+                const preco = Number(window.document.querySelector('#preco').value)
+                const percentual = Number(window.document.querySelector('#percentual').value)
+                const result = window.document.querySelector('#resultado')
+                const percentualPreco = (percentual / 100) * preco
+                const novoPreco = preco + percentualPreco
+
+                result.innerHTML = `O produto que custava ${preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}, com <strong> ${percentual}% de aumento </strong> vai passar a custar <strong> ${novoPreco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})} </strong> a partir de agora.`
+            })
+        </script>
+    </form>
+</body>
+</html>

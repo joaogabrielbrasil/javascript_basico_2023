@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header><h1>Calculando a sua idade</h1></header>
+    <form action="" method="post">
+        <fieldset>
+            <legend>Exercicio</legend>
+            <label for="ano_nasc">Em que ano você nasceu ?</label>
+            <p><input type="number" name="ano_nasc" id="ano_nasc" min="1900"></p>
+            <label for="ano">Quer saber a sua idade em que ano ? <strong id="a"></strong> <small>(Atualmente estamos em <strong>2023</strong>)</small></label>
+            <p>1900<input type="range" name="ano" id="ano" step="1" min="1900" max="2100" value="1900" oninput="n()">2100</p>
+            <p><input type="submit" value="Calcular idade" id="calcular_idade"></p>
+        </fieldset>
+        <p><h2>Resultado</h2></p>
+        <p id="resultado"></p>
+        <script>/*
+            const n = window.document.querySelector('#ano')
+            n.addEventListener('input', function(event) {
+                event.preventDefault()
+
+                a.innerText = ano.value
+            })*/
+            n()
+            function n() {
+                a.innerText = ano.value
+            }
+        </script>
+        <script>
+            const btn = window.document.querySelector('#calcular_idade')
+            btn.addEventListener('click', function(event) {
+                event.preventDefault()
+
+                const ano_nasc = Number(window.document.querySelector('#ano_nasc').value)
+                const ano = Number(window.document.querySelector('#ano').value)
+                const result = window.document.querySelector('#resultado')
+                const idade = ano - ano_nasc
+
+                result.innerHTML = `Quem nasceu em ${ano_nasc} vai ter <strong> ${idade} anos </strong> em ${ano}.`
+            })
+        </script>
+    </form>
+</body>
+</html>
